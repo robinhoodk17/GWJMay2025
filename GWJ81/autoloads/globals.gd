@@ -25,3 +25,4 @@ var campsite_weight : int = 0
 var oxygen_radius : float = 3.0
 var camera_speed : float = 400
 var button_size : float = 32.0
+var characters : Dictionary

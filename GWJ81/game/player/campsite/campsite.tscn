@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ewck4v5oyiab"]
+[gd_scene load_steps=8 format=3 uid="uid://ewck4v5oyiab"]
 
 [ext_resource type="Texture2D" uid="uid://bkdcng6qu8cu2" path="res://game/player/assets/campfire.png" id="1_4aqkx"]
 [ext_resource type="Script" uid="uid://c82h4kvppvq4c" path="res://game/player/campsite/campsite.gd" id="1_bla70"]
@@ -9,9 +9,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xagg"]
 radius = 16.0
-
-[sub_resource type="SystemFont" id="SystemFont_bla70"]
-subpixel_positioning = 0
 
 [node name="Campsite" type="TextureButton" groups=["selectable"]]
 mouse_default_cursor_shape = 2
@@ -40,23 +37,6 @@ shape = SubResource("CircleShape2D_5xagg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_4aqkx")
-
-[node name="Selection" type="Node2D" parent="Node2D"]
-
-[node name="Label" type="Label" parent="Node2D/Selection"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -11.5
-offset_right = 11.5
-offset_bottom = 25.0
-grow_horizontal = 2
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = SubResource("SystemFont_bla70")
-theme_override_font_sizes/font_size = 40
-text = "."
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="SelectionAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rubt6")

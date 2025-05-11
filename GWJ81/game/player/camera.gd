@@ -17,5 +17,5 @@ func _physics_process(delta: float) -> void:
 func _next_unit() -> void:
 	global_position = campsite.global_position
 
-func unit_died(unit) -> void:
+func unit_died(unit : Node) -> void:
 	global_position = unit.global_position

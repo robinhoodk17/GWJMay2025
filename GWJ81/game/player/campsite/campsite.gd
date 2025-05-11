@@ -1,7 +1,6 @@
 extends TextureButton
 
 @onready var resource_acquisition: Area2D = $Node2D/Oxygen_radius/resource_acquisition
-@onready var selection_label: Node2D = $Node2D/Selection
 @onready var selection_audio: AudioStreamPlayer = $SelectionAudio
 @onready var sprite: Control = $Node2D
 
@@ -33,12 +32,7 @@ func end_turn() -> void:
 			i.amount -= 1
 
 
-func _process(delta: float) -> void:
-	selection_label.visible = selected
-	#global_position = get_global_mouse_position()
-	
-
-
 func show_campsite_ui() -> void:
+	SignalBus.unit_selected.emit()
 	selection_audio.play()
 	Ui.go_to("CampsiteUI")

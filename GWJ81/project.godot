@@ -27,12 +27,12 @@ Utils="*res://autoloads/utils.gd"
 GUIDE="*res://addons/guide/guide.gd"
 Ui="*res://ui/ui.tscn"
 SignalBus="*res://autoloads/signal_bus.gd"
+HexNavi="*res://addons/hex_grid_nav/hexagon_navigation.gd"
 
 [debug]
 
 gdscript/warnings/unused_parameter=0
 gdscript/warnings/unused_signal=0
-gdscript/warnings/untyped_declaration=1
 gdscript/warnings/inferred_declaration=1
 
 [display]
@@ -53,7 +53,7 @@ naming/script_name_casing=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/guide/plugin.cfg", "res://addons/maaacks_ui_sound_controller/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/guide/plugin.cfg", "res://addons/hex_grid_nav/plugin.cfg", "res://addons/maaacks_ui_sound_controller/plugin.cfg")
 
 [file_customization]
 
