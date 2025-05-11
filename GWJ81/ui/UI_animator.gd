@@ -50,7 +50,6 @@ signal  finished_entering
 @export var properties : Array[String] = ["scale", "position", "rotation", "size", "self_modulate"]
 @export var parallel_animations : bool = true
 
-
 var rng : RandomNumberGenerator =  RandomNumberGenerator.new()
 var target : Control
 var default_scale : Vector2
@@ -70,7 +69,7 @@ func _ready() -> void:
 		target.focus_entered.connect(on_hover)
 		target.mouse_entered.connect(on_hover)
 		target.focus_exited.connect(off_hover)
-		target.mouse_exited.connect(on_hover)
+		target.mouse_exited.connect(off_hover)
 	if wait_for:
 		wait_for.finished_entering.connect(on_enter_deferred)
 func setup() -> void:
@@ -143,13 +142,15 @@ func exit() -> void:
 func on_hover() -> void:
 	add_tween(hover_values, parallel_animations, hover_time, hover_transition, hover_easing, hover_delay)
 func off_hover() -> void:
+	#return
 	add_tween(default_values, parallel_animations, hover_time, hover_transition, hover_easing, hover_delay)
 	
 func blip() -> void:
 	if hover_rotation == 0.0:
 		return
-	var tween : Tween = create_tween()
-	tween.tween_property(target,"rotation",default_values["rotation"],hover_time).set_trans(hover_transition).set_ease(hover_easing )
+	add_tween(default_values, parallel_animations, hover_time, hover_transition, hover_easing, hover_delay)
+	#var tween : Tween = create_tween()
+	#tween.tween_property(target,"rotation",default_values["rotation"],hover_time).set_trans(hover_transition).set_ease(hover_easing )
 func deemphasize() -> void:
 	add_tween(deemphasize_values, parallel_animations, deepmhasize_time, hover_transition, hover_easing, deepmhasize_delay)
 

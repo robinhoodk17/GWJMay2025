@@ -38,8 +38,9 @@ text = "Resume"
 
 [node name="Node" parent="Buttons/Resume" instance=ExtResource("2_le02u")]
 connect_as_button = true
-hover_rotation = 0.4
-hover_transition = 11
+hover_scale = Vector2(0.5, 0.5)
+hover_rotation = 2.0
+hover_time = 0.25
 random_entrance = true
 entrance_time = 0.4
 entrance_transition = 11
@@ -53,8 +54,9 @@ text = "Settings"
 [node name="Node" parent="Buttons/Settings" instance=ExtResource("2_le02u")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
-hover_transition = 11
+hover_scale = Vector2(0.5, 0.5)
+hover_rotation = 2.0
+hover_time = 0.25
 random_entrance = true
 entrance_position = Vector2(0, 50)
 entrance_time = 0.4
@@ -69,8 +71,9 @@ text = "Controls"
 [node name="Node" parent="Buttons/Controls" instance=ExtResource("2_le02u")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
-hover_transition = 11
+hover_scale = Vector2(0.5, 0.5)
+hover_rotation = 2.0
+hover_time = 0.25
 random_entrance = true
 entrance_position = Vector2(0, 50)
 entrance_time = 0.4
@@ -86,8 +89,9 @@ text = "Main menu
 [node name="Node" parent="Buttons/MainMenu" instance=ExtResource("2_le02u")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
-hover_transition = 11
+hover_scale = Vector2(0.5, 0.5)
+hover_rotation = 2.0
+hover_time = 0.25
 random_entrance = true
 entrance_position = Vector2(0, 50)
 entrance_time = 0.4
@@ -102,8 +106,9 @@ text = "Quit"
 [node name="Node" parent="Buttons/Quit" instance=ExtResource("2_le02u")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
-hover_transition = 11
+hover_scale = Vector2(0.5, 0.5)
+hover_rotation = 2.0
+hover_time = 0.25
 random_entrance = true
 entrance_position = Vector2(0, 50)
 entrance_time = 0.4

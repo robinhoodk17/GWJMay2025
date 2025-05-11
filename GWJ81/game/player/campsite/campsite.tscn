@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://ewck4v5oyiab"]
+
+[ext_resource type="Texture2D" uid="uid://bkdcng6qu8cu2" path="res://game/player/assets/campfire.png" id="1_4aqkx"]
+[ext_resource type="Script" uid="uid://c82h4kvppvq4c" path="res://game/player/campsite/campsite.gd" id="1_bla70"]
+[ext_resource type="Script" uid="uid://bpoq3ugxhn0bu" path="res://game/player/campsite/oxygen_radius.gd" id="2_5xagg"]
+[ext_resource type="Texture2D" uid="uid://bj6vrspeotkwo" path="res://game/player/campsite/assets/oxygen_radius.png" id="2_8pjg4"]
+[ext_resource type="PackedScene" uid="uid://doodjmci2iujk" path="res://ui/UI_animator.tscn" id="5_h4gwn"]
+[ext_resource type="AudioStream" uid="uid://dt82n3ttj1lfe" path="res://game/player/campsite/assets/selected.wav" id="6_rubt6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xagg"]
+radius = 16.0
+
+[sub_resource type="SystemFont" id="SystemFont_bla70"]
+subpixel_positioning = 0
+
+[node name="Campsite" type="TextureButton" groups=["selectable"]]
+mouse_default_cursor_shape = 2
+script = ExtResource("1_bla70")
+
+[node name="UIAnimator" parent="." instance=ExtResource("5_h4gwn")]
+connect_as_button = true
+hover_scale = Vector2(1, 1)
+hover_rotation = 0.2
+hover_time = 0.3
+properties = Array[String](["scale", "rotation", "size", "self_modulate"])
+
+[node name="Node2D" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Oxygen_radius" type="Sprite2D" parent="Node2D"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_8pjg4")
+script = ExtResource("2_5xagg")
+
+[node name="resource_acquisition" type="Area2D" parent="Node2D/Oxygen_radius"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Oxygen_radius/resource_acquisition"]
+shape = SubResource("CircleShape2D_5xagg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_4aqkx")
+
+[node name="Selection" type="Node2D" parent="Node2D"]
+
+[node name="Label" type="Label" parent="Node2D/Selection"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -11.5
+offset_right = 11.5
+offset_bottom = 25.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = SubResource("SystemFont_bla70")
+theme_override_font_sizes/font_size = 40
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rubt6")
+
+[editable path="UIAnimator"]

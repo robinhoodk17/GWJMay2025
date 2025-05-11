@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cslgvkdhrsg8x"]
+
+[ext_resource type="Script" uid="uid://ghaebbbxwdlc" path="res://game/scenes/world/resources/master/resource_master.gd" id="1_3tt24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tt24"]
+
+[node name="ResourceMaster" type="StaticBody2D" groups=["resource"]]
+script = ExtResource("1_3tt24")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -24.0
+offset_right = 23.0
+offset_bottom = -1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3tt24")

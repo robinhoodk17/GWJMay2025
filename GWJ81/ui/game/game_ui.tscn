@@ -1,45 +1,158 @@
-[gd_scene load_steps=3 format=3 uid="uid://bojsla6nqcf03"]
+[gd_scene load_steps=11 format=3 uid="uid://bojsla6nqcf03"]
 
 [ext_resource type="Script" uid="uid://bbe25uxhy3b0c" path="res://ui/game/game_ui.gd" id="1_67una"]
-[ext_resource type="PackedScene" uid="uid://dkr80d2pi0d41" path="res://addons/guide/debugger/guide_debugger.tscn" id="2_li4ca"]
+[ext_resource type="Texture2D" uid="uid://dyngu6f2lvijg" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Resources/Resources/M_Idle_(NoShadow).png" id="2_2g71p"]
+[ext_resource type="Texture2D" uid="uid://cogsry84ockgo" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Resources/Sheep/sheep.png" id="2_7okqv"]
+[ext_resource type="Script" uid="uid://cy7bi2k6ovko7" path="res://ui/game/resource_label.gd" id="3_lkn3m"]
+[ext_resource type="Texture2D" uid="uid://dh21a2godnwj8" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Terrain/Water/Water.png" id="4_b3mny"]
+[ext_resource type="Texture2D" uid="uid://bhspvj67jao8t" path="res://ui/game/assets/wood.png" id="4_ke6fc"]
+[ext_resource type="Texture2D" uid="uid://cfool6y76dqft" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rock.png" id="6_pc3ud"]
+[ext_resource type="Texture2D" uid="uid://d4ell2xt2hhtq" path="res://game/scenes/world/resources/assets/people.png" id="6_vor7y"]
+[ext_resource type="Texture2D" uid="uid://b3sxus5beficw" path="res://game/scenes/world/resources/assets/weight.png" id="9_w08ax"]
+[ext_resource type="Script" uid="uid://1kf1uivs7wal" path="res://ui/game/weight_resource.gd" id="10_b7dow"]
 
-[node name="Game" type="Control" node_paths=PackedStringArray("default_focus_control")]
+[node name="Game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_67una")
 prevent_joypad_focus_capture = true
-default_focus_control = NodePath("VBoxContainer/ToggleGuideDebugger")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -33.5
-offset_right = 33.5
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "Game UI"
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 356.0
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 285.0
-grow_vertical = 2
-
-[node name="ToggleGuideDebugger" type="CheckButton" parent="VBoxContainer"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "GUIDE Debugger"
+mouse_filter = 2
 
-[node name="GuideDebugger" parent="VBoxContainer" instance=ExtResource("2_li4ca")]
-unique_name_in_owner = true
+[node name="Uncooked" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Uncooked"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_7okqv")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Uncooked"]
+layout_mode = 2
+text = "0"
+script = ExtResource("3_lkn3m")
+resource = 3
+
+[node name="Food" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Food"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_2g71p")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Food"]
+layout_mode = 2
+text = "0"
+script = ExtResource("3_lkn3m")
+resource = 4
+
+[node name="Water" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Water"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_b3mny")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Water"]
+layout_mode = 2
+text = "0"
+script = ExtResource("3_lkn3m")
+resource = 5
+
+[node name="People" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/People"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_vor7y")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/People"]
+layout_mode = 2
+text = "0"
+script = ExtResource("3_lkn3m")
+resource = 2
+
+[node name="Wood" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Wood"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_ke6fc")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Wood"]
+layout_mode = 2
+text = "0"
+script = ExtResource("3_lkn3m")
+
+[node name="Rock" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Rock"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_pc3ud")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Rock"]
+layout_mode = 2
+text = "0"
+script = ExtResource("3_lkn3m")
+resource = 1
+
+[node name="Weight" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Weight"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("9_w08ax")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Weight"]
+layout_mode = 2
+text = "0"
+script = ExtResource("10_b7dow")
+
+[node name="EndTurnButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "End turn"

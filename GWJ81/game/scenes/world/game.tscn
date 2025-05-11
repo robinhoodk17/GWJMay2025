@@ -1,0 +1,226 @@
+[gd_scene load_steps=16 format=4 uid="uid://bhsiyh7htemxt"]
+
+[ext_resource type="Script" uid="uid://dcan2834cyr68" path="res://game/scenes/world/game.gd" id="1_bub6j"]
+[ext_resource type="Resource" uid="uid://v5u0dyabni7e" path="res://input/default_mapping_context.tres" id="2_let6s"]
+[ext_resource type="Texture2D" uid="uid://h3s0oeuhgj00" path="res://game/scenes/world/assets/summer_plains_v1.0_standard/tiles.png" id="3_i71d8"]
+[ext_resource type="Resource" uid="uid://bc7rd63eppou0" path="res://input/select_unit.tres" id="3_nvtqm"]
+[ext_resource type="PackedScene" uid="uid://ddk1yse00i403" path="res://game/scenes/world/resources/wood/wood.tscn" id="4_1ciin"]
+[ext_resource type="Resource" uid="uid://beo1nm8jb55pd" path="res://input/move_unit.tres" id="4_6cfpn"]
+[ext_resource type="Script" uid="uid://cjrq7m0m8bwgk" path="res://game/scenes/world/interactables_tilemap.gd" id="5_0nev6"]
+[ext_resource type="PackedScene" uid="uid://ewck4v5oyiab" path="res://game/player/campsite/campsite.tscn" id="5_1ciin"]
+[ext_resource type="PackedScene" uid="uid://fwwy88d4ktf6" path="res://game/scenes/world/resources/stone/stone.tscn" id="7_6cfpn"]
+[ext_resource type="PackedScene" uid="uid://c45durd305s70" path="res://game/player/camera.tscn" id="7_6yoqb"]
+[ext_resource type="PackedScene" uid="uid://fy303agrjmuy" path="res://game/player/character/character.tscn" id="11_4734c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0nev6"]
+texture = ExtResource("3_i71d8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/custom_data_0 = true
+7:0/0 = 0
+7:0/0/custom_data_0 = true
+8:0/0 = 0
+8:0/0/custom_data_0 = true
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/custom_data_0 = true
+7:1/0 = 0
+7:1/0/custom_data_0 = true
+8:1/0 = 0
+8:1/0/custom_data_0 = true
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:2/0/custom_data_0 = true
+7:2/0 = 0
+7:2/0/custom_data_0 = true
+8:2/0 = 0
+8:2/0/custom_data_0 = true
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+0:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_6yoqb"]
+scenes/1/scene = ExtResource("4_1ciin")
+scenes/2/scene = ExtResource("7_6cfpn")
+
+[sub_resource type="TileSet" id="TileSet_il126"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "Water"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Mountain"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_0nev6")
+sources/1 = SubResource("TileSetScenesCollectionSource_6yoqb")
+
+[sub_resource type="TileSet" id="TileSet_4734c"]
+tile_size = Vector2i(32, 32)
+
+[node name="Game_tscn" type="Node2D"]
+script = ExtResource("1_bub6j")
+default_mapping_context = ExtResource("2_let6s")
+select_unit = ExtResource("3_nvtqm")
+move_unit = ExtResource("4_6cfpn")
+
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="TileMaps"]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAADAAIAAAABAAEAAAADAAMAAAABAAEAAAAEAAMAAAABAAEAAAAFAAMAAAABAAEAAAABAAEAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAD+/wEAAAABAAEAAAD9/wEAAAABAAEAAAD9/wIAAAABAAEAAAD9/wMAAAABAAEAAAD9/wQAAAABAAEAAAD+/wQAAAABAAEAAAD+/wMAAAABAAEAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAACAAEAAAABAAEAAAADAAEAAAABAAEAAAAEAAEAAAABAAEAAAAFAAEAAAABAAEAAAAFAAIAAAABAAEAAAAEAAIAAAABAAEAAAAEAAQAAAABAAEAAAAFAAQAAAABAAEAAAADAAQAAAABAAEAAAACAAQAAAABAAEAAAABAAQAAAABAAEAAAAAAAQAAAABAAEAAAD//wQAAAABAAEAAAD//wMAAAABAAEAAAAAAAMAAAABAAEAAAABAAMAAAABAAEAAAACAAMAAAABAAEAAAAAAAAAAAAHAAEAAAD//wAAAAAHAAEAAAD/////AAABAAEAAAD+/wAAAAAHAAEAAAD9/wAAAAAHAAEAAAABAAAAAAAHAAEAAAACAAAAAAAHAAEAAAADAAAAAAABAAEAAAADAP//AAABAAEAAAACAP//AAABAAEAAAABAP//AAABAAEAAAAAAP//AAABAAEAAAD+////AAABAAEAAAD9////AAABAAEAAAA=")
+tile_set = SubResource("TileSet_il126")
+
+[node name="Resources" type="TileMapLayer" parent="TileMaps"]
+position = Vector2(-60, -28)
+tile_map_data = PackedByteArray("AAAEAAQAAQAAAAAAAQADAAMAAQAAAAAAAQACAAMAAQAAAAAAAQACAAUAAQAAAAAAAQD//wIAAQAAAAAAAQD//wMAAQAAAAAAAQD//wQAAQAAAAAAAQA=")
+tile_set = SubResource("TileSet_il126")
+script = ExtResource("5_0nev6")
+
+[node name="TileMapUI" type="TileMapLayer" parent="TileMaps"]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_4734c")
+
+[node name="Camera2D" parent="." instance=ExtResource("7_6yoqb")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Campsite" parent="Control" instance=ExtResource("5_1ciin")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.0
+offset_top = 111.0
+offset_right = 50.0
+offset_bottom = 111.0
+
+[node name="Character" parent="Control" instance=ExtResource("11_4734c")]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 46.0
+offset_right = -42.0
+offset_bottom = 46.0
+is_currently_scout = true

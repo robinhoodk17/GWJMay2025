@@ -55,7 +55,9 @@ text = "Play"
 
 [node name="Node" parent="MarginContainer/Buttons/Play" instance=ExtResource("2_omy8q")]
 connect_as_button = true
-hover_rotation = 0.4
+hover_scale = Vector2(1, 1)
+hover_rotation = 1.5
+hover_time = 0.3
 entrance_time = 0.4
 entrance_transition = 11
 hover_easing = 1
@@ -68,7 +70,9 @@ text = "How to Play"
 [node name="Node" parent="MarginContainer/Buttons/HowToPlay" instance=ExtResource("2_omy8q")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
+hover_scale = Vector2(1, 1)
+hover_rotation = 1.5
+hover_time = 0.3
 entrance_position = Vector2(0, 100)
 entrance_time = 0.5
 entrance_transition = 11
@@ -82,7 +86,9 @@ text = "Settings"
 [node name="Node" parent="MarginContainer/Buttons/Settings" instance=ExtResource("2_omy8q")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
+hover_scale = Vector2(1, 1)
+hover_rotation = 1.5
+hover_time = 0.3
 entrance_position = Vector2(0, 100)
 entrance_time = 0.5
 entrance_transition = 11
@@ -96,7 +102,9 @@ text = "Controls"
 [node name="Node" parent="MarginContainer/Buttons/Controls" instance=ExtResource("2_omy8q")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
+hover_scale = Vector2(1, 1)
+hover_rotation = 1.5
+hover_time = 0.3
 entrance_position = Vector2(0, 100)
 entrance_time = 0.5
 entrance_transition = 11
@@ -110,7 +118,9 @@ text = "Credits"
 [node name="Node" parent="MarginContainer/Buttons/Credits" instance=ExtResource("2_omy8q")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
+hover_scale = Vector2(1, 1)
+hover_rotation = 1.5
+hover_time = 0.3
 entrance_position = Vector2(0, 100)
 entrance_time = 0.5
 entrance_transition = 11
@@ -124,7 +134,9 @@ text = "Exit"
 [node name="Node" parent="MarginContainer/Buttons/Exit" instance=ExtResource("2_omy8q")]
 connect_as_button = true
 entrance_animation = true
-hover_rotation = 0.4
+hover_scale = Vector2(1, 1)
+hover_rotation = 1.5
+hover_time = 0.3
 entrance_position = Vector2(0, 100)
 entrance_time = 0.5
 entrance_transition = 11

@@ -19,17 +19,19 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_back"):
 		if visible:
 			get_viewport().set_input_as_handled()
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 			_resume()
 		else:
+			if ui.is_shown("MainMenu"):
+				return
 			ui.go_to("PauseMenu")
 			%Resume.grab_focus()
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 			get_tree().paused = true
 
 
 func _resume() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	if ui:
 		ui.go_to("Game")
 	get_tree().paused = false
@@ -48,4 +50,4 @@ func quit() -> void:
 func show_ui() -> void:
 	show()
 	%Resume.grab_focus()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED

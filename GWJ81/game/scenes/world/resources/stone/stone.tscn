@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://fwwy88d4ktf6"]
+
+[ext_resource type="PackedScene" uid="uid://cslgvkdhrsg8x" path="res://game/scenes/world/resources/master/resource_master.tscn" id="1_avaqm"]
+
+[node name="Stone" instance=ExtResource("1_avaqm")]

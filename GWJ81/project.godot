@@ -26,10 +26,12 @@ ProjectUISoundController="*res://addons/maaacks_ui_sound_controller/base/scenes/
 Utils="*res://autoloads/utils.gd"
 GUIDE="*res://addons/guide/guide.gd"
 Ui="*res://ui/ui.tscn"
+SignalBus="*res://autoloads/signal_bus.gd"
 
 [debug]
 
 gdscript/warnings/unused_parameter=0
+gdscript/warnings/unused_signal=0
 gdscript/warnings/untyped_declaration=1
 gdscript/warnings/inferred_declaration=1
 
@@ -60,7 +62,6 @@ folder_colors={
 "res://autoloads/": "yellow",
 "res://game/": "green",
 "res://input/": "teal",
-"res://test/": "orange",
 "res://ui/": "blue"
 }
 
@@ -70,13 +71,18 @@ report/assert/verbose_warnings=false
 report/godot/script_error=false
 ui/toolbar/run_overall=true
 
+[global_group]
+
+resource=""
+selectable=""
+
 [godot_resource_groups]
 
 auto_rebuild=true
 
 [gui]
 
-theme/custom="res://ui/ui_theme.tres"
+theme/custom="uid://douptobb2vwx8"
 
 [input]
 
@@ -94,6 +100,10 @@ ui_cancel={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+ui_focus_next={
+"deadzone": 0.5,
+"events": []
+}
 ui_focus_controls={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":4,"pressure":0.0,"pressed":true,"script":null)
@@ -109,6 +119,8 @@ ui_back={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.0784314, 0.133333, 0.25098, 1)
 anti_aliasing/quality/screen_space_aa=1

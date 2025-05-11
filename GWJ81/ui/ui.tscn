@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://u1vgfeia861q"]
+[gd_scene load_steps=14 format=3 uid="uid://u1vgfeia861q"]
 
 [ext_resource type="PackedScene" uid="uid://cc37235kj4384" path="res://addons/maaacks_ui_sound_controller/base/scenes/Autoloads/ProjectUISoundController.tscn" id="1_v2lrn"]
 [ext_resource type="Script" uid="uid://6bdc8qcu5soa" path="res://ui/ui.gd" id="1_yeoin"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dfgowfkuko4ne" path="res://ui/how_to_play/how_to_play.tscn" id="8_y2e8e"]
 [ext_resource type="PackedScene" uid="uid://c31bw3nk5ujvg" path="res://ui/settings/settings.tscn" id="9_jqbk6"]
 [ext_resource type="PackedScene" uid="uid://mwbv2jh1ugjq" path="res://ui/controls/controls.tscn" id="11_w3b35"]
+[ext_resource type="PackedScene" uid="uid://cwsolcp2lhj0j" path="res://ui/game/campsite_ui/campsite_ui.tscn" id="11_x7jpl"]
 [ext_resource type="PackedScene" uid="uid://dtrluvg5ox2vb" path="res://ui/notifications/message_board.tscn" id="12_hlgii"]
 
 [node name="UI" type="CanvasLayer"]
@@ -42,6 +43,8 @@ script = ExtResource("5_n6lj8")
 [node name="MainMenu" parent="." instance=ExtResource("2_7jndn")]
 
 [node name="Game" parent="." instance=ExtResource("8_62oa5")]
+
+[node name="CampsiteUI" parent="." instance=ExtResource("11_x7jpl")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_2pasj")]
 process_mode = 0

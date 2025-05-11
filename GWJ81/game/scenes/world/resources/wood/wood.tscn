@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddk1yse00i403"]
+
+[ext_resource type="PackedScene" uid="uid://cslgvkdhrsg8x" path="res://game/scenes/world/resources/master/resource_master.tscn" id="1_h02wo"]
+[ext_resource type="Texture2D" uid="uid://c2qo1fm5aa0eg" path="res://game/scenes/world/assets/summer_plains_v1.0_standard/assets.png" id="2_cfny6"]
+
+[node name="Wood" instance=ExtResource("1_h02wo")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_cfny6")
+hframes = 4
+vframes = 14
+frame = 16
+
+[node name="Label" parent="." index="1"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -25.0
+offset_right = 31.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
