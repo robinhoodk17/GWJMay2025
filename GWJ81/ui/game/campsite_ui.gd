@@ -15,6 +15,7 @@ func populate_ui():
 		i.queue_free()
 	for character in Globals.characters.keys():
 		var new_char = CHARACTER_INFO.instantiate()
+		new_char.pl_char = character
 		new_char.char_name = character.character_name
 		new_char.portrait_texture = Globals.characters[character]
 		new_char.hp = character.hp

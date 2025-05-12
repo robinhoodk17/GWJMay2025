@@ -1,15 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbxe7si822rx4"]
+[gd_scene load_steps=3 format=3 uid="uid://dbxe7si822rx4"]
 
 [ext_resource type="Script" uid="uid://dump1102j78ga" path="res://ui/game/campsite_ui/character_info.gd" id="1_i8uef"]
+[ext_resource type="PackedScene" uid="uid://doodjmci2iujk" path="res://ui/UI_animator.tscn" id="2_2ruek"]
 
 [node name="CharacterInfo" type="Control"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
@@ -23,14 +22,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSeparator2" type="HSeparator" parent="."]
+[node name="HSeparator2" type="HSeparator" parent="Button"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 4.0
 grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,133 +38,135 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Portrait" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="Portrait" type="TextureRect" parent="Button/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 stretch_mode = 5
 
-[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Name" type="Label" parent="Button/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Leloo"
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="Button/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 mouse_filter = 2
 
-[node name="Abilities" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Abilities" type="VBoxContainer" parent="Button/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Hp" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Abilities"]
+[node name="Hp" type="HBoxContainer" parent="Button/VBoxContainer/HBoxContainer/Abilities"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Hp"]
+[node name="Label" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Hp"]
 layout_mode = 2
 text = "HP"
 
-[node name="HPStat" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Hp"]
+[node name="HPStat" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Hp"]
 layout_mode = 2
 text = "5"
 
-[node name="Speed" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Abilities"]
+[node name="Speed" type="HBoxContainer" parent="Button/VBoxContainer/HBoxContainer/Abilities"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Speed"]
+[node name="Label" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Speed"]
 layout_mode = 2
 text = "Speed"
 
-[node name="SpeedStat" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Speed"]
+[node name="SpeedStat" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Speed"]
 layout_mode = 2
 text = "5"
 
-[node name="Strength" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Abilities"]
+[node name="Strength" type="HBoxContainer" parent="Button/VBoxContainer/HBoxContainer/Abilities"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Strength"]
+[node name="Label" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Strength"]
 layout_mode = 2
 text = "Strength"
 
-[node name="StrengthStat" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Strength"]
+[node name="StrengthStat" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Strength"]
 layout_mode = 2
 text = "5"
 
-[node name="Fight" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Abilities"]
+[node name="Fight" type="HBoxContainer" parent="Button/VBoxContainer/HBoxContainer/Abilities"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Fight"]
+[node name="Label" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Fight"]
 layout_mode = 2
 text = "Fight"
 
-[node name="FighStat" type="Label" parent="VBoxContainer/HBoxContainer/Abilities/Fight"]
+[node name="FighStat" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities/Fight"]
 layout_mode = 2
 text = "5"
 
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="Button/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 mouse_filter = 2
 
-[node name="Abilities2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Abilities2" type="VBoxContainer" parent="Button/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Foraging" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Abilities2"]
+[node name="Foraging" type="HBoxContainer" parent="Button/VBoxContainer/HBoxContainer/Abilities2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Abilities2/Foraging"]
+[node name="Label" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities2/Foraging"]
 layout_mode = 2
 text = "Hunt/Forage"
 
-[node name="ForagingCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer/Abilities2/Foraging"]
+[node name="ForagingCheck" type="CheckBox" parent="Button/VBoxContainer/HBoxContainer/Abilities2/Foraging"]
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
 
-[node name="WoodStone" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Abilities2"]
+[node name="WoodStone" type="HBoxContainer" parent="Button/VBoxContainer/HBoxContainer/Abilities2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Abilities2/WoodStone"]
+[node name="Label" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities2/WoodStone"]
 layout_mode = 2
 text = "Wood/Stone"
 
-[node name="WoodCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer/Abilities2/WoodStone"]
+[node name="WoodCheck" type="CheckBox" parent="Button/VBoxContainer/HBoxContainer/Abilities2/WoodStone"]
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
 
-[node name="Crafting" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Abilities2"]
+[node name="Crafting" type="HBoxContainer" parent="Button/VBoxContainer/HBoxContainer/Abilities2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Abilities2/Crafting"]
+[node name="Label" type="Label" parent="Button/VBoxContainer/HBoxContainer/Abilities2/Crafting"]
 layout_mode = 2
 text = "Crafting"
 
-[node name="CraftCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer/Abilities2/Crafting"]
+[node name="CraftCheck" type="CheckBox" parent="Button/VBoxContainer/HBoxContainer/Abilities2/Crafting"]
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="Button/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 mouse_filter = 2
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="HSeparator" type="HSeparator" parent="Button"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -174,3 +175,9 @@ anchor_bottom = 1.0
 offset_top = -4.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="UIAnimator" parent="Button" instance=ExtResource("2_2ruek")]
+connect_as_button = true
+entrance_animation = true
+hover_rotation = 0.4
+hover_time = 0.3

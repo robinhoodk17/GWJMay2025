@@ -1,16 +1,18 @@
 extends Control
 
-@onready var portrait: TextureRect = $VBoxContainer/HBoxContainer/Portrait
-@onready var character_name: Label = $VBoxContainer/HBoxContainer/Name
+@onready var portrait: TextureRect = $Button/VBoxContainer/HBoxContainer/Portrait
+@onready var character_name: Label = $Button/VBoxContainer/HBoxContainer/Name
 
-@onready var hp_stat: Label = $VBoxContainer/HBoxContainer/Abilities/Hp/HPStat
-@onready var speed_stat: Label = $VBoxContainer/HBoxContainer/Abilities/Speed/SpeedStat
-@onready var strength_stat: Label = $VBoxContainer/HBoxContainer/Abilities/Strength/StrengthStat
-@onready var figh_stat: Label = $VBoxContainer/HBoxContainer/Abilities/Fight/FighStat
-@onready var foraging_check: CheckBox = $VBoxContainer/HBoxContainer/Abilities2/Foraging/ForagingCheck
-@onready var wood_check: CheckBox = $VBoxContainer/HBoxContainer/Abilities2/WoodStone/WoodCheck
-@onready var craft_check: CheckBox = $VBoxContainer/HBoxContainer/Abilities2/Crafting/CraftCheck
+@onready var hp_stat: Label = $Button/VBoxContainer/HBoxContainer/Abilities/Hp/HPStat
+@onready var speed_stat: Label = $Button/VBoxContainer/HBoxContainer/Abilities/Speed/SpeedStat
+@onready var strength_stat: Label = $Button/VBoxContainer/HBoxContainer/Abilities/Strength/StrengthStat
+@onready var figh_stat: Label = $Button/VBoxContainer/HBoxContainer/Abilities/Fight/FighStat
+@onready var foraging_check: CheckBox = $Button/VBoxContainer/HBoxContainer/Abilities2/Foraging/ForagingCheck
+@onready var wood_check: CheckBox = $Button/VBoxContainer/HBoxContainer/Abilities2/WoodStone/WoodCheck
+@onready var craft_check: CheckBox = $Button/VBoxContainer/HBoxContainer/Abilities2/Crafting/CraftCheck
+@onready var button: Button = $Button
 
+var pl_char : player_character
 
 var char_name : String
 var portrait_texture : CompressedTexture2D
@@ -24,6 +26,7 @@ var wood : bool = true
 var crafting : bool = true
 
 func _ready() -> void:
+	button.button_up.connect(show_character_data)
 	portrait.texture = portrait_texture
 	character_name.text = char_name
 	hp_stat.text = str(hp)
@@ -35,4 +38,6 @@ func _ready() -> void:
 	wood_check.button_pressed = wood
 	craft_check.button_pressed = crafting
 	
-	
+func show_character_data() -> void:
+	Ui.go_to("CharData")
+	SignalBus.showing_character.emit(pl_char)

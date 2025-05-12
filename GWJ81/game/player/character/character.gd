@@ -8,6 +8,7 @@ signal hiding_tooltip
 @export var character_name : String = "Karen"
 ##hit points before death
 @export var hp : int = 5
+@export var max_hp : int = 5
 ##how much weight they can carry
 @export var strength : int = 5
 ##tiles moved per turn
