@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ealkxqiso6pg"]
+
+[ext_resource type="Script" uid="uid://7eck4kxvewks" path="res://autoloads/globals.gd" id="1_26amj"]
+[ext_resource type="Script" uid="uid://dkcewo1ymi828" path="res://game/player/campsite/building_blueprint.gd" id="2_xfg7k"]
+[ext_resource type="Resource" uid="uid://chol7ds0ypce7" path="res://game/player/campsite/buildings/well/well_blueprint.tres" id="3_rs3io"]
+
+[node name="Globals" type="Node"]
+script = ExtResource("1_26amj")
+available_blueprints = Dictionary[int, ExtResource("2_xfg7k")]({
+0: ExtResource("3_rs3io")
+})

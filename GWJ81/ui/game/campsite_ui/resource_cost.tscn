@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dagnrlubth786"]
+
+[ext_resource type="Script" uid="uid://85k25ht0wtoj" path="res://ui/game/campsite_ui/resource_cost.gd" id="1_kw7kk"]
+[ext_resource type="Script" uid="uid://by7nqar7ppwr3" path="res://ui/game/resource_portrait.gd" id="2_gvdtt"]
+
+[node name="Cost" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kw7kk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+script = ExtResource("2_gvdtt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2

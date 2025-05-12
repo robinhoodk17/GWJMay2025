@@ -1,18 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://ewck4v5oyiab"]
+[gd_scene load_steps=13 format=3 uid="uid://ewck4v5oyiab"]
 
 [ext_resource type="Texture2D" uid="uid://bkdcng6qu8cu2" path="res://game/player/assets/campfire.png" id="1_4aqkx"]
 [ext_resource type="Script" uid="uid://c82h4kvppvq4c" path="res://game/player/campsite/campsite.gd" id="1_bla70"]
 [ext_resource type="Script" uid="uid://bpoq3ugxhn0bu" path="res://game/player/campsite/oxygen_radius.gd" id="2_5xagg"]
 [ext_resource type="Texture2D" uid="uid://bj6vrspeotkwo" path="res://game/player/campsite/assets/oxygen_radius.png" id="2_8pjg4"]
 [ext_resource type="PackedScene" uid="uid://doodjmci2iujk" path="res://ui/UI_animator.tscn" id="5_h4gwn"]
+[ext_resource type="Texture2D" uid="uid://ywfnu172ajia" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue.png" id="6_6ka6h"]
 [ext_resource type="AudioStream" uid="uid://dt82n3ttj1lfe" path="res://game/player/campsite/assets/selected.wav" id="6_rubt6"]
+[ext_resource type="Script" uid="uid://i5peuhsfxtoj" path="res://game/player/campsite/campsite_tooltip.gd" id="7_whkv3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xagg"]
 radius = 16.0
 
-[node name="Campsite" type="TextureButton" groups=["selectable"]]
+[sub_resource type="Animation" id="Animation_whkv3"]
+resource_name = "settle_down"
+
+[sub_resource type="Animation" id="Animation_6ka6h"]
+resource_name = "pack_up"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pg8gi"]
+_data = {
+&"pack_up": SubResource("Animation_6ka6h"),
+&"settle_down": SubResource("Animation_whkv3")
+}
+
+[node name="Campsite" type="TextureButton" node_paths=PackedStringArray("move_button", "setup_button", "build_button", "animation_player") groups=["selectable"]]
+z_index = 1
 mouse_default_cursor_shape = 2
 script = ExtResource("1_bla70")
+move_button = NodePath("Tooltip/MarginContainer/Tooltip/move_button")
+setup_button = NodePath("Tooltip/MarginContainer/Tooltip/setup_button")
+build_button = NodePath("Tooltip/MarginContainer/Tooltip/build_button")
+animation_player = NodePath("AnimationPlayer")
+move_range = 4
 
 [node name="UIAnimator" parent="." instance=ExtResource("5_h4gwn")]
 connect_as_button = true
@@ -35,10 +55,71 @@ script = ExtResource("2_5xagg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Oxygen_radius/resource_acquisition"]
 shape = SubResource("CircleShape2D_5xagg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Camp" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_4aqkx")
+
+[node name="Van" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("6_6ka6h")
 
 [node name="SelectionAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rubt6")
+
+[node name="TooltipTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pg8gi")
+}
+
+[node name="Tooltip" type="Panel" parent="." node_paths=PackedStringArray("move_button", "setup_button", "build_button")]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -152.0
+offset_right = 121.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_whkv3")
+move_button = NodePath("MarginContainer/Tooltip/move_button")
+setup_button = NodePath("MarginContainer/Tooltip/setup_button")
+build_button = NodePath("MarginContainer/Tooltip/build_button")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Tooltip" type="HBoxContainer" parent="Tooltip/MarginContainer"]
+z_index = 1
+layout_mode = 2
+mouse_filter = 0
+
+[node name="move_button" type="Button" parent="Tooltip/MarginContainer/Tooltip"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move"
+
+[node name="setup_button" type="Button" parent="Tooltip/MarginContainer/Tooltip"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Setup"
+
+[node name="build_button" type="Button" parent="Tooltip/MarginContainer/Tooltip"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Build"
 
 [editable path="UIAnimator"]

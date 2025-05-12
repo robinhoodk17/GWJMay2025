@@ -12,3 +12,6 @@ func _ready() -> void:
 
 func update_label() -> void:
 	label.text = str(amount)
+	if amount <= 0:
+		await get_tree().create_timer(1).timeout
+		queue_free()

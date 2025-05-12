@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="building_blueprint" load_steps=3 format=3 uid="uid://chol7ds0ypce7"]
+
+[ext_resource type="Texture2D" uid="uid://dooqd4cib34wi" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Active.png" id="1_lvwff"]
+[ext_resource type="Script" uid="uid://dkcewo1ymi828" path="res://game/player/campsite/building_blueprint.gd" id="1_rv745"]
+
+[resource]
+script = ExtResource("1_rv745")
+costs = Dictionary[int, int]({})
+portrait = ExtResource("1_lvwff")
+building_name = "well"
+metadata/_custom_type_script = "uid://dkcewo1ymi828"

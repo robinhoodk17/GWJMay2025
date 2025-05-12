@@ -22,12 +22,14 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TechTreeContainer" type="VBoxContainer" parent="VBoxContainer/TechTree"]
+[node name="TechTreeContainer" type="GridContainer" parent="VBoxContainer/TechTree"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+columns = 5
 
 [node name="Characters" type="ScrollContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true

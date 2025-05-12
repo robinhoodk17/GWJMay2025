@@ -39,6 +39,7 @@ var in_progress: bool = false
 var offset : Vector2 = Vector2.ZERO
 var currently_selected : bool = false
 var tile_sizes : Vector2
+var is_center_of_attention : bool = false
 var resources : Dictionary[Globals.resource_type, int] = {
 	Globals.resource_type.FOOD : 0,
 	Globals.resource_type.WATER : 0
@@ -49,8 +50,10 @@ var dead : bool = false
 func _ready() -> void:
 	Globals.characters[self] = sprite_2d.texture
 	SignalBus.turn_ended.connect(end_turn)
+	SignalBus.turn_started.connect(start_turn)
 	SignalBus.unit_selected.connect(another_unit_selected)
 	SignalBus.unit_moved.connect(move_unit)
+	SignalBus.campsite_showing_tooltip.connect(center_of_attention)
 	button_up.connect(select_unit)
 	tooltip_timer.timeout.connect(show_tooltip)
 	mouse_entered.connect(func start_timer(): tooltip_timer.start(tooltip_delay))
@@ -69,16 +72,28 @@ func _ready() -> void:
 	char_tile = HexNavi.global_to_cell(global_position + offset)
 	global_position = HexNavi.cell_to_global(char_tile) - offset
 	grab_focus()
+func center_of_attention(another_one_has_attention : bool) -> void:
+	if another_one_has_attention:
+		another_unit_selected()
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+	else:
+		mouse_filter = Control.MOUSE_FILTER_STOP
+	disabled = another_one_has_attention
+	is_center_of_attention = !another_one_has_attention
 func show_tooltip() -> void:
+	if !is_center_of_attention:
+		return
 	showing_tooltip.emit()
 func another_unit_selected() -> void:
 	hiding_tooltip.emit()
 	if !currently_selected:
 		return
+	tile_map_ui.clear()
 	focus_entered.emit()
 	selection_label.hide()
 	currently_selected = false
 func select_unit() -> void:
+	SignalBus.unit_selected.emit()
 	hiding_tooltip.emit()
 	if actions_left <= 0 or dead:
 		return
@@ -119,9 +134,11 @@ func move_unit(_target_cell : Vector2i) -> void:
 	#global_position = HexNavi.cell_to_global(_target_cell) - offset
 func end_turn() -> void:
 	hiding_tooltip.emit()
-	actions_left = actions_per_turn
 	if is_currently_scout:
 		if resources[Globals.resource_type.FOOD] == 0 or resources[Globals.resource_type.WATER] == 0:
+			if Globals.character_focused:
+				await SignalBus.character_ended_focus
+			Globals.character_focused = true
 			showing_tooltip.emit()
 			SignalBus.unit_died.emit(sprite)
 			await get_tree().create_timer(1).timeout
@@ -139,7 +156,8 @@ func end_turn() -> void:
 			SignalBus.game_over.emit("starvation")
 		if Globals.resources[Globals.resource_type.WATER] < 0:
 			SignalBus.game_over.emit("thirst")
-
+func start_turn() -> void:
+	actions_left = actions_per_turn
 func die() -> void:
 	Globals.characters.erase(self)
 	showing_tooltip.emit()
@@ -147,3 +165,9 @@ func die() -> void:
 	await get_tree().create_timer(1).timeout
 	hiding_tooltip.emit()
 	animation_player.play("die")
+
+func delete_self() -> void:
+	Globals.characters.erase(self)
+	Globals.character_focused = false
+	SignalBus.character_ended_focus.emit()
+	queue_free()

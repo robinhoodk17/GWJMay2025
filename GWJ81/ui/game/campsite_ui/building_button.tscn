@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv44tkxf5kf4b"]
+
+[ext_resource type="Script" uid="uid://cc3vfgal2l8tr" path="res://building_button.gd" id="1_62q4w"]
+[ext_resource type="Texture2D" uid="uid://dooqd4cib34wi" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Active.png" id="2_eyos4"]
+
+[node name="BuildingButton" type="Button"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62q4w")
+costs = Dictionary[int, int]({
+0: 5
+})
+portrait = ExtResource("2_eyos4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CostsContainer" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2

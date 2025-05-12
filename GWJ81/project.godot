@@ -20,8 +20,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Globals="*res://autoloads/globals.tscn"
 Settings="*res://autoloads/settings.gd"
-Globals="*res://autoloads/globals.gd"
 ProjectUISoundController="*res://addons/maaacks_ui_sound_controller/base/scenes/Autoloads/ProjectUISoundController.tscn"
 Utils="*res://autoloads/utils.gd"
 GUIDE="*res://addons/guide/guide.gd"

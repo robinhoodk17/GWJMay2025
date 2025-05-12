@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func turn_end() -> void:
 	SignalBus.turn_ended.emit()
+	SignalBus.turn_started.emit()

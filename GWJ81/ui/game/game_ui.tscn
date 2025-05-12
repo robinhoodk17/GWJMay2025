@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bojsla6nqcf03"]
+[gd_scene load_steps=12 format=3 uid="uid://bojsla6nqcf03"]
 
 [ext_resource type="Script" uid="uid://bbe25uxhy3b0c" path="res://ui/game/game_ui.gd" id="1_67una"]
 [ext_resource type="Texture2D" uid="uid://dyngu6f2lvijg" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Resources/Resources/M_Idle_(NoShadow).png" id="2_2g71p"]
 [ext_resource type="Texture2D" uid="uid://cogsry84ockgo" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Resources/Sheep/sheep.png" id="2_7okqv"]
 [ext_resource type="Script" uid="uid://cy7bi2k6ovko7" path="res://ui/game/resource_label.gd" id="3_lkn3m"]
+[ext_resource type="Script" uid="uid://by7nqar7ppwr3" path="res://ui/game/resource_portrait.gd" id="3_vor7y"]
 [ext_resource type="Texture2D" uid="uid://dh21a2godnwj8" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Terrain/Water/Water.png" id="4_b3mny"]
 [ext_resource type="Texture2D" uid="uid://bhspvj67jao8t" path="res://ui/game/assets/wood.png" id="4_ke6fc"]
 [ext_resource type="Texture2D" uid="uid://cfool6y76dqft" path="res://game/scenes/world/resources/Tiny Swords/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rock.png" id="6_pc3ud"]
@@ -48,6 +49,8 @@ mouse_filter = 2
 texture = ExtResource("2_7okqv")
 expand_mode = 3
 stretch_mode = 4
+script = ExtResource("3_vor7y")
+resource_type = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Uncooked"]
 layout_mode = 2
@@ -65,6 +68,7 @@ mouse_filter = 2
 texture = ExtResource("2_2g71p")
 expand_mode = 3
 stretch_mode = 4
+script = ExtResource("3_vor7y")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Food"]
 layout_mode = 2
@@ -82,6 +86,8 @@ mouse_filter = 2
 texture = ExtResource("4_b3mny")
 expand_mode = 3
 stretch_mode = 4
+script = ExtResource("3_vor7y")
+resource_type = 5
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Water"]
 layout_mode = 2
@@ -99,6 +105,8 @@ mouse_filter = 2
 texture = ExtResource("6_vor7y")
 expand_mode = 3
 stretch_mode = 4
+script = ExtResource("3_vor7y")
+resource_type = 5
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/People"]
 layout_mode = 2
@@ -114,6 +122,8 @@ mouse_filter = 2
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("4_ke6fc")
+script = ExtResource("3_vor7y")
+resource_type = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Wood"]
 layout_mode = 2
@@ -130,6 +140,8 @@ mouse_filter = 2
 texture = ExtResource("6_pc3ud")
 expand_mode = 3
 stretch_mode = 4
+script = ExtResource("3_vor7y")
+resource_type = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Rock"]
 layout_mode = 2
@@ -145,6 +157,8 @@ mouse_filter = 2
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("9_w08ax")
+script = ExtResource("3_vor7y")
+resource_type = 6
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Weight"]
 layout_mode = 2
