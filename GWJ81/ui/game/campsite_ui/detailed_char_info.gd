@@ -27,9 +27,10 @@ var crafting : bool = true
 
 func _ready() -> void:
 	back.button_up.connect(back_to_campsite)
-	visibility_changed.connect(initialize)
+	SignalBus.showing_character.connect(update_data)
 
-func initialize() -> void:
+func update_data(_character : player_character) -> void:
+	pl_char = _character
 	await get_tree().process_frame
 	if pl_char == null or !visible or !Globals.characters.has(pl_char):
 		return

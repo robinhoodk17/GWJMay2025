@@ -4,10 +4,11 @@ const CHARACTER_INFO = preload("res://ui/game/campsite_ui/character_info.tscn")
 @onready var character_container: VBoxContainer = $VBoxContainer/Characters/CharacterContainer
 @onready var tech_tree_container: VBoxContainer = $VBoxContainer/TechTree/TechTreeContainer
 
-func _ready() -> void:
-	visibility_changed.connect(populate_ui)
+#func _ready() -> void:
+	#visibility_changed.connect(populate_ui)
 
-func populate_ui():
+func show_ui():
+	show()
 	await get_tree().process_frame
 	if !visible:
 		return
